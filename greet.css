@@ -100,3 +100,33 @@ label {
     padding: 0 20px;
 }
 
+@media screen and (max-width: 678px){
+    .greeting {
+        margin-top: 0;
+    }
+
+    section.text {
+        margin-top: 0;
+    }
+
+    input[type="submit"] {
+        margin-top: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p, input {
+        font-size: 1.5rem;
+    }
+
+    .counter {
+        font-size: 1.5rem;
+    }
+
+    label {
+        font-size: 1.5rem;
+    }
+
+}
