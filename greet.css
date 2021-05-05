@@ -19,7 +19,7 @@ body {
 }
 
 section.widget {
-    height: 50vh;
+    height: 60vh;
     width: 60vw;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
@@ -42,7 +42,7 @@ section.text {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 200;
 }
 
@@ -66,7 +66,7 @@ input {
 }
 
 .counter {
-    font-size: 3rem;
+    font-size: 2rem;
     vertical-align: auto;
 }
 
@@ -77,7 +77,7 @@ input {
 input[type="submit"] {
     background:rgba(116, 111, 111, 0.5);
     align-self: center;
-    padding: 5px;
+    padding: 0.5rem;
     outline: #305e02;
     border: none;
     cursor: pointer;
