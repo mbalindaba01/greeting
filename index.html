@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings</title>
+    <link rel="stylesheet" href="greet.css">
+</head>
+<body>
+    <section class="widget">
+        <h1>Greeting</h1>
+        <section class="text">
+            <div class="counter-section">
+                <p>Name <input type="text" name="name" id="name" required></p>
+                <p class="counter">0</p>
+            </div>    
+            <div class="radio-section">
+                <input type="radio" name="language" value="IsiZulu">
+                <label for="language">IsiZulu</label>
+                <input type="radio" name="language" value="IsiXhosa">
+                <label for="language">IsiXhosa</label>
+                <input type="radio" name="language" value="English">
+                <label for="language">English</label>
+            </div>
+            <input type="submit" id="submit" value="Greet Me">
+            <p class="greeting"></p>
+        </section>
+    </section>
+<script src="namesGreeted.js"></script>
+<script src="greet.js"></script>
+</body>
+</html>
