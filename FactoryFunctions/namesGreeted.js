@@ -3,7 +3,7 @@ const NamesGreeted = () => {
     let username
 
     const setName = (name) => {
-        username = name
+        username = name.toLowerCase()
     }
 
     const getName = () => {

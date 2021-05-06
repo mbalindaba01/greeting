@@ -1,6 +1,5 @@
 //reference name input field
 const nameInput = document.querySelector('#name')
-
 //reference to submit button
 const submitButton = document.querySelector('#submit')
 
@@ -17,6 +16,8 @@ const resetButton = document.querySelector('#reset')
 const radioBtns = document.querySelectorAll("input[name='language']")
 console.log(radioBtns)
 
+//make instance of language picker
+const pickLanguage = LanguagePicker()
 
 //function to display greeting 
 const displayGreeting = () => {
@@ -25,38 +26,41 @@ const displayGreeting = () => {
     if(checkedRadioBtn){
         var language = checkedRadioBtn.value
     }
+    
+    pickLanguage.setLanguage(language)
+    pickLanguage.getLanguage()
+    pickLanguage.setGreetText()
 
-    let greetText = ''
-
-    if(language == 'IsiZulu'){
-        greetText = 'Sawubona '
-    }
-
-    if(language == 'IsiXhosa') {
-        greetText = 'Molo '
-    }
-
-    if(language == 'English') {
-        greetText = 'Hello '
+    if(nameInput.value != '') {
+        greeting.innerHTML = pickLanguage.getGreetText() + nameInput.value
+        greeting.style.color = '#eee'
     }
     
-    if(nameInput.value != '') {
-        greeting.innerHTML = greetText + nameInput.value
-        greeting.style.color = '#eee'
-    }else {
+    if(nameInput.value == ''){
         greeting.innerHTML = "Please input name"
         greeting.style.color = 'red'
+
+        setTimeout(() => {
+            greeting.innerHTML = ""
+        }, 2000);
     }
 
-    if(!nameInput.value.match(/[a-z]/ig)){
+    if(!nameInput.value.match(/[a-zA-Z]/ig)){
         greeting.innerHTML = "Please input valid name"
         greeting.style.color = 'red'
-        return
+
+        setTimeout(() => {
+            greeting.innerHTML = ""
+        }, 2000);
     }
 
     if(!checkedRadioBtn){
         greeting.innerHTML = "Please choose a greeting language"
         greeting.style.color = 'red'
+
+        setTimeout(() => {
+            greeting.innerHTML = ""
+        }, 2000);
     }
 
 }
@@ -89,6 +93,7 @@ const checkName = NamesGreeted()
 
 //display greeting and increase counter when button is clicked
 submitButton.addEventListener('click', () => {
+    //getting list of greeted names from local storage
     let names = [].concat(localStorage.getItem('names').split(','))
     checkName.setNamesGreeted(names)
     checkName.setName(nameInput.value)
@@ -99,8 +104,10 @@ submitButton.addEventListener('click', () => {
 
     displayGreeting()
 
+    //clear input value
     nameInput.value = ''
-
+    
+    //clear radio button selection
     for(let i = 0; i < radioBtns.length; i++){
         radioBtns[i].checked = false
         console.log('haibo')
@@ -108,6 +115,7 @@ submitButton.addEventListener('click', () => {
 
 })
 
+//reset counter when reset button is clicked
 resetButton.addEventListener('click', () => {
     localStorage.setItem('names', [])
     localStorage.setItem('greetCount', 0)
